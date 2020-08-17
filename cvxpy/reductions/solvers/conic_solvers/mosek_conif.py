@@ -412,7 +412,8 @@ class MOSEK(ConicSolver):
                       mosek.solsta.integer_optimal: s.OPTIMAL,
                       mosek.solsta.prim_feas: s.OPTIMAL_INACCURATE,    # for integer problems
                       mosek.solsta.prim_infeas_cer: s.INFEASIBLE,
-                      mosek.solsta.dual_infeas_cer: s.UNBOUNDED}
+                      mosek.solsta.dual_infeas_cer: s.UNBOUNDED,
+                      mosek.solsta.unknown: s.OPTIMAL_INACCURATE}
         # "Near" statuses only up to Mosek 8.1
         if hasattr(mosek.solsta, 'near_optimal'):
             STATUS_MAP_INACCURATE = {mosek.solsta.near_optimal: s.OPTIMAL_INACCURATE,
